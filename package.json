@@ -2,5 +2,8 @@
   "name": "rajan-shrestha",
   "lockfileVersion": 3,
   "requires": true,
-  "packages": {}
+  "packages": {},
+  "dependencies": {
+    "rebass": "^3.0.0-12"
+  }
 }
