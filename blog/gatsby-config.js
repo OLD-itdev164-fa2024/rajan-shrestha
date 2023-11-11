@@ -14,7 +14,7 @@ require('dotenv').config({
 
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Blog`,
+    title: `Chicken, Goat, and Grain Game`,
     description: `ITDEV-164 Gatsby Blog`,
     author: `Rajan Shrestha`,
     siteUrl: `https://gatsbystarterdefaultsource.gatsbyjs.io/`,
@@ -26,6 +26,7 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-image`,
+    `gatsby-plugin-styled-components`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
