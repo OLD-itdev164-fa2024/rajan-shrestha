@@ -9,9 +9,9 @@ import * as React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 import styled, { ThemeProvider } from "styled-components"
-
+//import Header from "./header"
 import { Gray } from './themes/Gray'
-import Header from "./header"
+import { Header } from "./Header"
 import "./layout.css"
 
 const Content = styled.div`
@@ -32,15 +32,10 @@ const Layout = ({ children }) => {
   `)
 
   return (
-    <>
+    <ThemeProvider theme={Gray}>
+    
       <Header siteTitle={data.site.siteMetadata.title || `Title`} />
-      <div
-        style={{
-          margin: `0 auto`,
-          maxWidth: `var(--size-content)`,
-          padding: `var(--size-gutter)`,
-        }}
-      >
+      <Content>
         <main>{children}</main>
         <footer
           style={{
@@ -48,13 +43,17 @@ const Layout = ({ children }) => {
             fontSize: `var(--font-sm)`,
           }}
         >
-          © {new Date().getFullYear()} &middot; Built with
+          {new Date().getFullYear()} &middot; Built with
           {` `}
           <a href="https://www.gatsbyjs.com">Gatsby</a>
         </footer>
-      </div>
-    </>
+      </Content>
+    </ThemeProvider>
   )
+}
+
+Layout.propTypes = {
+  children: PropTypes.node.isRequired,
 }
 
 export default Layout
