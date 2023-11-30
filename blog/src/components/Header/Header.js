@@ -8,7 +8,7 @@ import { Section } from '../Section'
 import { IconButton } from '../Button'
 
 const Outer = styled.header`
-  background: ${props => props.theme.header.backgroundColor};
+  background: ${({ theme }) => theme.variants.header.primary.backgroundColor};
   margin-bottom: 1.45rem;
   margin: 0 auto;
   padding: var(--space-4) var(--size-gutter);
@@ -33,7 +33,7 @@ const Header = ({ siteTitle }) => (
     </H1>
     </Section>
     <Section width={1/12}>
-      <IconButton icon={<Search />} />
+      <IconButton icon={<Search />} variant='contrast'/>
     </Section>
   </Outer>
 )
