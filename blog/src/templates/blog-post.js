@@ -1,13 +1,17 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import Layout from '../components/layout'
+import { GatsbyImage } from "gatsby-plugin-image"
 import { H1 } from '../components/Heading'
 
 const BlogPost = ({ data }) => {
-    const { title, body } = data.contentfulBlogPost
+    const { title, body, hero} = data.contentfulBlogPost
 
     return (
         <Layout>
+          <GatsbyImage
+          image={hero.gatsbyImageData}
+          />
             <H1>{title}</H1>
             <div dangerouslySetInnerHTML={{__html: body.childMarkdownRemark.html}}></div>
         </Layout>
@@ -25,6 +29,13 @@ query blogPostQuery($slug: String!) {
         childMarkdownRemark {
           html
         }
+      }
+      hero {
+        gatsbyImageData(
+          layout: CONSTRAINED
+          placeholder: BLURRED
+          width: 960
+        )
       }
     }
   }
