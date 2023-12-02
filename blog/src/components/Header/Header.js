@@ -1,11 +1,11 @@
 import PropTypes from "prop-types"
-import styled from "styled-components"
-import { Search } from 'styled-icons/feather'
 import * as React from "react"
 import { Link } from "gatsby"
 import { H1 } from '../Heading'
 import { Section } from '../Section'
-import { IconButton } from '../Button'
+import styled, { ThemeConsumer } from 'styled-components'
+import { SearchButton } from '../Button'
+import { Flex } from 'rebass'
 
 const Outer = styled.header`
   background: ${props => props.theme.header.backgroundColor};
